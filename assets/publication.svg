@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="300" viewBox="0 0 1000 300" role="img" aria-labelledby="pt pd">
+  <title id="pt">High energy particle collisions in the vicinity of naked singularity</title>
+  <desc id="pd">Physics of the Dark Universe, volume 50, December 2025, article 102101. Authors: K. Acharya, P. Bambhaniya, P. S. Joshi, K. Pandey, V. Patel.</desc>
+  <defs>
+    <linearGradient id="card" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0c1224"/><stop offset="1" stop-color="#17101c"/></linearGradient>
+    <linearGradient id="bar" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffd08a"/><stop offset="1" stop-color="#ff7a1a"/></linearGradient>
+    <radialGradient id="halo" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#ff9d3c" stop-opacity="0.35"/><stop offset="1" stop-color="#ff9d3c" stop-opacity="0"/></radialGradient>
+  </defs>
+  <rect x="0.5" y="0.5" width="999" height="299" rx="18" fill="url(#card)" stroke="#232c46"/>
+  <rect x="0" y="34" width="5" height="232" rx="2.5" fill="url(#bar)"/>
+
+  <!-- orbit motif -->
+  <g transform="translate(878 150)">
+    <circle r="92" fill="url(#halo)"/>
+    <circle r="34" fill="#000" stroke="#ffc680" stroke-opacity="0.7" stroke-width="1.4"/>
+    <ellipse rx="78" ry="20" transform="rotate(-18)" fill="none" stroke="#ffb868" stroke-opacity="0.55" stroke-width="1.5"/>
+    <ellipse rx="78" ry="20" transform="rotate(-18)" fill="none" stroke="#fff2d6" stroke-opacity="0.9" stroke-width="2.4" stroke-dasharray="46 400" stroke-linecap="round">
+      <animate attributeName="stroke-dashoffset" from="0" to="-446" dur="7s" repeatCount="indefinite"/>
+    </ellipse>
+    <circle cx="-40" cy="-40" r="1.6" fill="#fff"/><circle cx="52" cy="44" r="1.2" fill="#fff"/><circle cx="-62" cy="30" r="1.1" fill="#cfe0ff"/>
+  </g>
+
+  <g font-family="'Segoe UI', -apple-system, 'Helvetica Neue', Arial, sans-serif">
+    <text x="48" y="58" font-size="13" font-weight="700" letter-spacing="3.5" fill="#ffb868">PEER-REVIEWED PUBLICATION</text>
+    <text x="48" y="110" font-family="Georgia, 'Times New Roman', serif" font-size="31" fill="#f4f6fc">High energy particle collisions in the</text>
+    <text x="48" y="150" font-family="Georgia, 'Times New Roman', serif" font-size="31" fill="#f4f6fc">vicinity of naked singularity</text>
+    <text x="48" y="194" font-size="16" fill="#9aa6c4">K. Acharya, P. Bambhaniya, P. S. Joshi,
+      <tspan fill="#ffd9a8" font-weight="700">K. Pandey</tspan>, V. Patel</text>
+    <text x="48" y="226" font-size="16" fill="#c9d3ea"><tspan font-style="italic">Physics of the Dark Universe</tspan> &#183; Vol. 50 &#183; Dec 2025 &#183; Elsevier</text>
+    <text x="48" y="256" font-size="14" fill="#7f8aa6" letter-spacing="0.3">DOI 10.1016/j.dark.2025.102101  &#183;  arXiv:2303.16590  &#183;  gr-qc</text>
+  </g>
+</svg>
