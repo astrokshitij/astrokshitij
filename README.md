@@ -10,12 +10,12 @@ Physicist turned product and AI builder, based in Gurgaon, India. I use an analy
 <!-- PROJECTS:START -->
 <table>
   <tr>
-    <td width="50%"><a href="https://github.com/astrokshitij/astro-blackhole"><img src="assets/cards/astro-blackhole.svg" alt="astro-blackhole" width="100%"></a></td>
-    <td width="50%"><a href="https://github.com/astrokshitij/bookmyforex-assist-frontend"><img src="assets/cards/bookmyforex-assist-frontend.svg" alt="bookmyforex-assist-frontend" width="100%"></a></td>
+    <td width="50%"><a href="https://github.com/astrokshitij/astro-blackhole"><img src="assets/cards/astro-blackhole-card.svg" alt="astro-blackhole" width="100%"></a></td>
+    <td width="50%"><a href="https://github.com/astrokshitij/bookmyforex-assist-frontend"><img src="assets/cards/bookmyforex-assist-frontend-card.svg" alt="bookmyforex-assist-frontend" width="100%"></a></td>
   </tr>
   <tr>
-    <td width="50%"><a href="https://github.com/astrokshitij/touchline-ai"><img src="assets/cards/touchline-ai.svg" alt="touchline-ai" width="100%"></a></td>
-    <td width="50%"><a href="https://github.com/astrokshitij/cat-v-s-dog-image-classification"><img src="assets/cards/cat-v-s-dog-image-classification.svg" alt="cat-v-s-dog-image-classification" width="100%"></a></td>
+    <td width="50%"><a href="https://github.com/astrokshitij/touchline-ai"><img src="assets/cards/touchline-ai-card.svg" alt="touchline-ai" width="100%"></a></td>
+    <td width="50%"><a href="https://github.com/astrokshitij/cat-v-s-dog-image-classification"><img src="assets/cards/cat-v-s-dog-image-classification-card.svg" alt="cat-v-s-dog-image-classification" width="100%"></a></td>
   </tr>
 </table>
 <!-- PROJECTS:END -->

@@ -98,10 +98,10 @@ def main():
     for old in CARDS.glob("*.svg"):
         old.unlink()
     for r in repos:
-        (CARDS / f"{r['name']}.svg").write_text(card_svg(r), encoding="utf-8")
+        (CARDS / f"{r['name']}-card.svg").write_text(card_svg(r), encoding="utf-8")
 
     cells = [
-        f'<a href="{r["html_url"]}"><img src="assets/cards/{r["name"]}.svg" alt="{escape(r["name"])}" width="100%"></a>'
+        f'<a href="{r["html_url"]}"><img src="assets/cards/{r["name"]}-card.svg" alt="{escape(r["name"])}" width="100%"></a>'
         for r in repos
     ]
     rows = []
