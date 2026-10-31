@@ -8,6 +8,7 @@ import json
 import os
 import subprocess
 import textwrap
+import urllib.error
 import urllib.request
 from datetime import datetime
 from html import escape
@@ -19,7 +20,7 @@ ROOT = Path(__file__).resolve().parent.parent
 CARDS = ROOT / "assets" / "cards"
 README = ROOT / "README.md"
 
-FONT = "'Segoe UI', -apple-system, 'Helvetica Neue', Arial, sans-serif"
+FONT = "-apple-system, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif"
 LANG_COLORS = {
     "TypeScript": "#3178c6",
     "JavaScript": "#f1e05a",
@@ -48,34 +49,37 @@ def api(path):
 
 def card_svg(repo):
     desc = repo.get("description") or "No description yet."
-    lines = textwrap.wrap(desc, 54)[:3]
-    if len(textwrap.wrap(desc, 54)) > 3:
+    wrapped = textwrap.wrap(desc, 56)
+    lines = wrapped[:3]
+    if len(wrapped) > 3:
         lines[-1] = lines[-1].rstrip(".,") + "…"
     lang = repo.get("language") or "Other"
     color = LANG_COLORS.get(lang, "#8b95b0")
     pushed = datetime.strptime(repo["pushed_at"], "%Y-%m-%dT%H:%M:%SZ").strftime("%d %b %Y")
     desc_svg = "".join(
-        f'<tspan x="28" dy="{0 if i == 0 else 21}">{escape(line)}</tspan>' for i, line in enumerate(lines)
+        f'<tspan x="24" dy="{0 if i == 0 else 21}">{escape(line)}</tspan>' for i, line in enumerate(lines)
     )
     name = escape(repo["name"])
-    stars = repo.get("stargazers_count", 0)
-    star_svg = (
-        f'<text x="410" y="152" text-anchor="end" font-size="13" fill="#7f8aa6">★ {stars}</text>' if stars else ""
-    )
-    return f"""<svg xmlns="http://www.w3.org/2000/svg" width="440" height="176" viewBox="0 0 440 176" role="img" aria-label="{name}: {escape(desc)}">
-  <defs>
-    <linearGradient id="card" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0c1224"/><stop offset="1" stop-color="#17101c"/></linearGradient>
-    <linearGradient id="bar" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#ffd08a"/><stop offset="1" stop-color="#ff7a1a"/></linearGradient>
-  </defs>
-  <rect x="0.5" y="0.5" width="439" height="175" rx="16" fill="url(#card)" stroke="#232c46"/>
-  <rect x="28" y="22" width="34" height="3" rx="1.5" fill="url(#bar)"/>
+    return f"""<svg xmlns="http://www.w3.org/2000/svg" width="440" height="160" viewBox="0 0 440 160" role="img" aria-label="{name}: {escape(desc)}">
+  <style>
+    .bg {{ fill: #ffffff; stroke: #d0d7de; }}
+    .title {{ fill: #0969da; }}
+    .desc {{ fill: #59636e; }}
+    .meta {{ fill: #59636e; }}
+    @media (prefers-color-scheme: dark) {{
+      .bg {{ fill: #0d1117; stroke: #30363d; }}
+      .title {{ fill: #4493f8; }}
+      .desc {{ fill: #9198a1; }}
+      .meta {{ fill: #9198a1; }}
+    }}
+  </style>
+  <rect class="bg" x="0.5" y="0.5" width="439" height="159" rx="8" stroke-width="1"/>
   <g font-family="{FONT}">
-    <text x="28" y="56" font-size="20" font-weight="700" fill="#f4f6fc">{name}</text>
-    <text x="28" y="84" font-size="14" fill="#9aa6c4">{desc_svg}</text>
-    <circle cx="34" cy="148" r="5" fill="{color}"/>
-    <text x="46" y="152" font-size="13" fill="#c9d3ea">{escape(lang)}</text>
-    <text x="{58 + int(len(lang) * 7.2) + 22}" y="152" font-size="13" fill="#7f8aa6">updated {pushed}</text>
-    {star_svg}
+    <text class="title" x="24" y="40" font-size="17" font-weight="600">{name}</text>
+    <text class="desc" x="24" y="68" font-size="14">{desc_svg}</text>
+    <circle cx="30" cy="132" r="5.5" fill="{color}"/>
+    <text class="meta" x="42" y="136" font-size="13">{escape(lang)}</text>
+    <text class="meta" x="{54 + int(len(lang) * 7.2) + 20}" y="136" font-size="13">Updated {pushed}</text>
   </g>
 </svg>
 """
